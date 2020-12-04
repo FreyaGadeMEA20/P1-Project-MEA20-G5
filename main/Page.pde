@@ -1,12 +1,12 @@
 class Page {
   Movie myMovie;
   PImage backgroundImage;
-  PImage object;
+  PImage[] object;
   
 
   float lengthOfMovie;
 
-  Page(Movie _myMovie, PImage _backgroundImage, PImage _object) {
+  Page(Movie _myMovie, PImage _backgroundImage, PImage[] _object) {
     myMovie = _myMovie;
     backgroundImage = _backgroundImage;
     myMovie.play();
@@ -29,6 +29,6 @@ class Page {
   }
   
   void objectOnScreen(){
-    image(object, width/4, height/2);
+    image(object[0], width/4, height/2);
   }
 }
