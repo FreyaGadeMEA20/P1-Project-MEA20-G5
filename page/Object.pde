@@ -77,5 +77,12 @@ class Object {
   }
 
   void mouseFollow() {
+    if (mouseOnObject) {
+      if (clicked) {
+        clicked = false;
+      } else {
+        clicked = true;
+      }
+    }
   }
 }

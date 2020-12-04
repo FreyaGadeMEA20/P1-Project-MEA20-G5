@@ -33,11 +33,5 @@ void draw() {
 }
 
 void mousePressed() {
-  if (bottle.mouseOnObject) {
-    if (bottle.clicked) {
-      bottle.clicked = false;
-    } else {
-      bottle.clicked = true;
-    }
-  }
+  bottle.mouseFollow();
 }
