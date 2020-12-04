@@ -31,11 +31,16 @@ void setup() {
   imageMode(CENTER);
 
   importFiles();
+  
+  pages.bottle = pages.instantiate(0);
   //bottle = new Object(object, width/2, height/2);
 }
 
 void draw() {
   background(0);
+  
+  pages.bottleDilemma();
+  
   //bottle.visualizeObject();
   //bottle.controller();
 
@@ -55,7 +60,7 @@ void importFiles() {
     listOfMovies[i].play();
   }
   //listOfMovies = new Movie[]{new Movie(this, "OAanimation.mov"), new Movie(this, "OAanimation.mov"), new Movie(this, "OAanimation.mov"), new Movie(this, "OAanimation.mov")};
-  println(listOfMovies);
+  //println(listOfMovies);
 
   //bottleBackgroundImage = loadImage("scene1-concept.png");
   backgroundImages = new PImage[]{loadImage("scene1-concept.png")};
@@ -79,6 +84,7 @@ void importFiles() {
 }
 
 void mousePressed() {
+  pages.bottle.interactionWithObject();
   //bottle.mouseFollow();
   //bottle.interactionWithObject();
 }
