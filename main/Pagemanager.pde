@@ -1,0 +1,5 @@
+class Pagemanager {
+  Page[] arrayOfPages;
+  
+  // :)
+}
