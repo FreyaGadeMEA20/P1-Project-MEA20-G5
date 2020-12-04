@@ -28,6 +28,7 @@ class Dilemma {
   
   void visualizeBackground(){
      page.backgroundImage(); 
+     page.objectOnScreen();
   }
   
   void visualizeObject(){

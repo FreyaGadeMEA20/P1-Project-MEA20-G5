@@ -1,5 +1,5 @@
 class Pagemanager {
-  Page[] arrayOfPages;
+  Dilemma[] arrayOfPages;
   
   // :)
 }
