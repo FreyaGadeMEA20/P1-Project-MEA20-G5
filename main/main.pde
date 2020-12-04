@@ -20,11 +20,11 @@ void setup() {
 
   imageMode(CENTER);
   bottleMovie = new Movie(this, "OAanimation.mov");
-  bottleObject = new PImage[]{loadImage("waterBottle2.1.png"), loadImage("waterBottle2.2.png")};
+  bottleObject = new PImage[]{loadImage("keyChain00.png"), loadImage("keyChainHighlight00.png")};
   for (int i = 0; i < bottleObject.length; i++) {
     bottleObject[i].resize(bottleObject[i].width/5, bottleObject[i].height/5);
   }
-  bottleBackgroundImage = loadImage("scene1-concept.png");
+  bottleBackgroundImage = loadImage("dilemma01_sketch00.png");
 
   bottle = new Dilemma(new Object(bottleObject, width/2, height/2), new Page(bottleMovie, bottleBackgroundImage)); 
 
