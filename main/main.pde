@@ -5,6 +5,7 @@ int[] windowSize = {1920, 1080};
 PImage[] bottleObject;
 Movie bottleMovie;
 PImage bottleBackgroundImage;
+PImage trashcan;
 
 //Object bottle;
 
@@ -25,8 +26,11 @@ void setup() {
     bottleObject[i].resize(bottleObject[i].width/5, bottleObject[i].height/5);
   }
   bottleBackgroundImage = loadImage("scene1-concept.png");
+  
+  trashcan = loadImage("trashCan.png");
+  trashcan.resize(trashcan.width/2, trashcan.height/2);
 
-  bottle = new Dilemma(new Object(bottleObject, width/2, height/2), new Page(bottleMovie, bottleBackgroundImage)); 
+  bottle = new Dilemma(new Object(bottleObject, width/2, height/2), new Page(bottleMovie, bottleBackgroundImage, trashcan)); 
 
   //bottle = new Object(object, width/2, height/2);
 }
