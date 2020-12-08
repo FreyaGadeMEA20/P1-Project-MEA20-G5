@@ -1,9 +1,7 @@
 class Page {
   Movie myMovie;
   PImage backgroundImage;
-  PImage[] object;
-
-
+  
   float lengthOfMovie;
 
   Page(Movie _myMovie, PImage _backgroundImage) {
