@@ -1,5 +1,3 @@
-
-
 class Pagemanager {
   //Dilemma[] arrayOfPages;
   Dilemma bottle;
@@ -24,15 +22,12 @@ class Pagemanager {
     
     sprites = new ArrayList<PImage[]>();
     for (int i = 0; i < _sprites.size(); i++){
-      //println(_sprites.get(i));
       sprites.add(_sprites.get(i));
-      println("hi" + listOfMovies[i]);
     }
     
-    objects = new ArrayList<PImage[]>(_objects.size());
+    objects = new ArrayList<PImage[]>();
     for (int i = 0; i < _objects.size(); i++){
       objects.add(_objects.get(i));
-      println("hi");
     }
     
     //bottle = new Dilemma(new Object(sprites.get(bottleDilemmaInt), width/2, height/2), new Page(listOfMovies[bottleDilemmaInt], backgroundImages[bottleDilemmaInt], objects.get(bottleDilemmaInt)));
@@ -47,8 +42,7 @@ class Pagemanager {
 
   void bottleDilemma() {
     
-    
-    
+   
     //bottle.visualizeBackground();
     bottle.visualizeObject();
   }
