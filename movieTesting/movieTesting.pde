@@ -23,7 +23,9 @@ void draw() {
     if (myMovie.time() >= lengthOfMovie) {
       playMovie = !playMovie;
       print("pog");  
-    } 
+    }  else {
+      playMovie = true; 
+    }
   } else {
    image(interactionImage, 0,0); 
   }
