@@ -69,6 +69,8 @@ class Pagemanager {
       transport.controller();
     } else if (currentScene == 2) {
       food.controller();
+    } else {
+      image(backgroundImages[1], width/2, height/2);
     }
   }
 

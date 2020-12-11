@@ -56,7 +56,7 @@ void importFiles() {
   }
   sprites.add(keys);
 
-  PImage[] food = new PImage[]{loadImage("beef.png"), loadImage("carrot.png"), loadImage("carrot.png"), loadImage("beef.png")};
+  PImage[] food = new PImage[]{loadImage("beef2.1.png"), loadImage("beef2.2.png"), loadImage("carrot2.1.png"), loadImage("carrot2.2.png")};
   for (int i = 0; i < food.length; i++) {
     food[i].resize(food[i].width/5, food[i].height/5);
   }
