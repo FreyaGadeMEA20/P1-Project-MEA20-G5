@@ -2,25 +2,34 @@ class Page {
   Movie myMovie;
   PImage backgroundImage;
   
-  float lengthOfMovie;
-
+  // Constructor that takes the movie file and the background image file
   Page(Movie _myMovie, PImage _backgroundImage) {
     myMovie = _myMovie;
     backgroundImage = _backgroundImage;
+    myMovie.jump(0); // Sets the duration to the start, to make sure it does not play from the middle of the movie.
+  }
+
+  boolean playMovie() { // Boolean function to play the movie
+    
+    image(myMovie, width/2, height/2); // Drawing the movie in the center of the screen
+
+    boolean notFinished; // Boolean the check if the movie is finished or not
+
+    // If statement to check if the current time of the movie has extended the duration of the movie.
+    if (myMovie.time() >= myMovie.duration()) { 
+      notFinished = false; // If the time has extended the duration, or is even to it, it will set the boolean "notFinished" to false, to signify it is finished.
+    } else {
+      notFinished = true; // Else it will say it is still ongoing and set it to true.
+    }
+    return notFinished; // Then it will return the boolean to tell where it is called from if it is finished or not.
+  }
+
+  // Function to start the movie.
+  void runMovie() {
     myMovie.play();
   }
 
-  boolean playMovie() {
-
-    image(myMovie, width/2, height/2);
-
-    if (myMovie.time() >= myMovie.duration()) { 
-      return false;
-    } else {
-      return true;
-    }
-  }
-
+  // Function for drawing the backgroundImage.
   void backgroundImage() {
     image(backgroundImage, width/2, height/2, width, height);
   }
