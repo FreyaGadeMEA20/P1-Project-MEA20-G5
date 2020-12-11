@@ -1,31 +1,28 @@
 import processing.video.*;
 
-int[] windowSize = {1920, 1080};
-
 Pagemanager pages;
 
-void settings() {
-  //size(windowSize[0], windowSize[1]);
-  fullScreen();
-}
-
 void setup() {
-  background(255);
+  fullScreen(); // Sets the program to run in fullscreen
 
-  imageMode(CENTER);
+  imageMode(CENTER); // Sets the image mode to be in center, as it felt the best to use.
 
-  importFiles();
+  importFiles(); // The program runs the importFiles function which, as the name states, imports the files.
 
+  // The program instantiates the different dilemmas
   pages.bottle = pages.instantiate(0, "SIDES");
-  //pages.transport = pages.instantiate(1, "SIDES");
-  //pages.food = pages.instantiate(2, "MIDDLE");
+  pages.transport = pages.instantiate(1, "SIDES");
+  pages.food = pages.instantiate(2, "MIDDLE");
 }
 
 void draw() {
   background(0);
 
-  pages.bottleDilemma();
+  //pages.bottleDilemma();
   //pages.transportDilemma();
+  //pages.foodDilemma();
+
+  pages.pageController();
 
   String fps = nf(frameRate, 0, -1);
   fill(0, 255, 0);
@@ -36,13 +33,13 @@ void draw() {
 void importFiles() {
   ArrayList<PImage[]> sprites = new ArrayList<PImage[]>();
 
-  String[] movieNames = {"OAanimation.mov", "OAanimation.mov", "OAanimation.mov"};
+  String[] movieNames = {"OAanimation.mov", "midlertidig.mp4", "OAanimation.mov"};
   Movie[] listOfMovies = new Movie[movieNames.length];
 
   for (int i = 0; i < movieNames.length; i++)
   {
     listOfMovies[i] = new Movie(this, movieNames[i]);
-    listOfMovies[i].play();
+    listOfMovies[i].pause();
   }
 
   PImage[] backgroundImages = new PImage[]{loadImage("scene1-concept1.png"), loadImage("dilemma01_sketch00.png"), loadImage("kitchenmadfri.jpg")};
@@ -59,7 +56,7 @@ void importFiles() {
   }
   sprites.add(keys);
 
-  PImage[] food = new PImage[]{loadImage("beef.png"), loadImage("carrot.png")};
+  PImage[] food = new PImage[]{loadImage("beef.png"), loadImage("carrot.png"), loadImage("carrot.png"), loadImage("beef.png")};
   for (int i = 0; i < food.length; i++) {
     food[i].resize(food[i].width/5, food[i].height/5);
   }

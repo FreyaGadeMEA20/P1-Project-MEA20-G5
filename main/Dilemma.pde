@@ -6,6 +6,8 @@ class Dilemma {
 
   String zone;
 
+  boolean firstTime = false;
+
   PImage[] images;
 
   boolean playMovie = true;
@@ -24,12 +26,24 @@ class Dilemma {
     zone = _zone;
   }
 
+  // Controller function which controls the flow of the dilemma
   void controller() {
-    if (playMovie) {
+    if (!firstTime) {
+      page.myMovie.play();
+      firstTime = true;
+    }
+    if (playMovie) { // If the playMovie boolean is true, it will run the playMovie function.
       playMovie = page.playMovie();
-    } else {
+    } else { // Else if it is not true, it will visualize the background image.
       visualizeBackground();
-      //visualizeObject();
+
+      // It will also display the object for the user, depending on if the zone is the side or the midddle
+      if (zone=="SIDES") { // If the click zone is the sides, it will visualize only one object
+        visualizeObject(object1, 0);
+      } else if (zone == "MIDDLE") {
+        visualizeObject(object1, 0);
+        visualizeObject(object2, 2);
+      }
     }
   }
 
@@ -37,29 +51,33 @@ class Dilemma {
     page.backgroundImage();
   }
 
-  void visualizeObject(Object object) {
+  void visualizeObject(Object object, int order) {
     object.update();
-    object.display();
+    object.display(order);
   }
 
-  void interactionWithObject() {
+  int interactionWithObject() {
+    int i = 0;
     if (zone == "MIDDLE") {
       if (object1.clicked) {
-        interactionZone(mouseX, zone);
+        i = interactionZone(mouseX, zone);
       } else if (object2.clicked) {
-        interactionZone(mouseX, zone);
+        i = interactionZone(mouseX, zone);
       }
       object1.mouseFollow();
       object2.mouseFollow();
     } else if (zone == "SIDES") {
       if (object1.clicked) {
-        interactionZone(mouseX, zone);
+        i = interactionZone(mouseX, zone);
       }
       object1.mouseFollow();
     }
+
+    return i;
   }
 
-  void interactionZone(float x, String zone) {
+  int interactionZone(float x, String zone) {
+    int i = 0;
     float zoneX = width/2;
     float zoneWidth = width/4;
 
@@ -70,10 +88,14 @@ class Dilemma {
       boolean interactionZone2 = x < zoneX + zoneWidth/2;
 
       if (interactionZone1 && interactionZone2 && object1.clicked) { 
-        println("Clicked box with object one");
+        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        println("Clicked box with object one"); // Debug print
       } else if (interactionZone1 && interactionZone2 && object2.clicked) {
-        println("clicked box with object two");
+        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        println("clicked box with object two"); // Debug print
       }
+      
+      
     } else if (zone == "SIDES") {
       zoneX = width/6;
 
@@ -86,10 +108,13 @@ class Dilemma {
       boolean interactionZone4 = x < (zoneX*5) + zoneWidth/1.5;
 
       if (interactionZone1 && interactionZone2) {
-        println("Clicked left side");
+        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        println("Clicked left side"); // Debug print
       } else if (interactionZone3 && interactionZone4) {
-        println("Clicked right side");
+        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        println("Clicked right side"); // Debug print
       }
     }
+    return i;
   }
 }
