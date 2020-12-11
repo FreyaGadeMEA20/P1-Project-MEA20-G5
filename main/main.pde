@@ -13,6 +13,9 @@ void setup() {
   pages.bottle = pages.instantiate(0, "SIDES");
   pages.transport = pages.instantiate(1, "SIDES");
   pages.food = pages.instantiate(2, "MIDDLE");
+  pages.shopping = pages.instantiate(3, "MIDDLE");
+  pages.gaming = pages.instantiate(4, "SIDES");
+  pages.work = pages.instantiate(5, "SIDES");
 }
 
 void draw() {
@@ -32,10 +35,10 @@ void draw() {
 // In this function, the program imports all the relevant files into the program, which then gets used when initializing the PageManager class.
 void importFiles() {
   // For the background images, the program loads a lot of images and saves them in an array.
-  PImage[] backgroundImages = new PImage[]{loadImage("scene1-concept1.png"), loadImage("dilemma01_sketch00.png"), loadImage("kitchenmadfri.jpg")};
+  PImage[] backgroundImages = new PImage[]{loadImage("scene1-concept1.png"), loadImage("dilemma01_sketch00.png"), loadImage("kitchenmadfri.jpg"), loadImage("dilemma04_shoppingDraft00.png"), loadImage("bedroom.png"), loadImage("factory2.jpg")};
 
   // For importing the movies, it is split into two different variables. 
-  String[] movieNames = {"OAanimation.mov", "midlertidig.mp4", "OAanimation.mov"}; // The first is the list of movieNames
+  String[] movieNames = {"OAanimation.mov", "midlertidig.mp4", "OAanimation.mov", "OAanimation.mov", "OAanimation.mov", "OAanimation.mov"}; // The first is the list of movieNames
   Movie[] listOfMovies = new Movie[movieNames.length]; // Which gets used to determine the length of of the Movie array
 
   // Then the program imports the movie names importing each individual file that gets listed in movieNames.
@@ -69,6 +72,21 @@ void importFiles() {
     food[i].resize(food[i].width/5, food[i].height/5);
   }
   sprites.add(food);
+  
+  // ~~~ Same as above ~~~ //
+  PImage[] shopItem = new PImage[]{loadImage("shopItem00.png"), loadImage("shopItem00.png"), loadImage("shopItem01.png"), loadImage("shopItem01.png")};
+  for (int i = 0; i < shopItem.length; i++) {
+    shopItem[i].resize(shopItem[i].width/5, shopItem[i].height/5);
+  }
+  sprites.add(shopItem); 
+  
+  // ~~~ Same as above ~~~ //
+  PImage[] hand = new PImage[]{loadImage("hand.png"), loadImage("handglow.png")};
+  for (int i = 0; i < hand.length; i++) {
+    hand[i].resize(hand[i].width/5, hand[i].height/5);
+  }
+  sprites.add(hand);
+  sprites.add(hand);
 
   // Then the program initializes the PageManager with the arrays and arrayList
   pages = new Pagemanager(listOfMovies, backgroundImages, sprites);

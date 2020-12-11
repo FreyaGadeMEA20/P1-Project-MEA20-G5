@@ -4,6 +4,9 @@ class Pagemanager {
   Dilemma bottle;
   Dilemma food;
   Dilemma transport;
+  Dilemma shopping;
+  Dilemma gaming;
+  Dilemma work;
 
   // The two objects as empty non instantialized variables
   Object object1;
@@ -83,6 +86,12 @@ class Pagemanager {
       transport.controller();
     } else if (currentScene == 2) {
       food.controller();
+    } else if (currentScene == 3) {
+      shopping.controller();
+    } else if (currentScene == 4) {
+      gaming.controller();
+    } else if (currentScene == 5) {
+      work.controller();
     } else {
       image(backgroundImages[1], width/2, height/2);
     }
@@ -97,6 +106,12 @@ class Pagemanager {
       currentScene += transport.interactionWithObject();
     } else if (currentScene == 2) {
       currentScene += food.interactionWithObject();
+    } else if (currentScene == 3) {
+      currentScene += shopping.interactionWithObject();
+    } else if (currentScene == 4) {
+      currentScene += gaming.interactionWithObject();
+    } else if (currentScene == 5) {
+      currentScene += work.interactionWithObject();
     } else {
       println("Debug");
     }
