@@ -1,11 +1,13 @@
 class Page {
   Movie myMovie;
   PImage backgroundImage;
+  SoundFile[] sound;
   
   // Constructor that takes the movie file and the background image file
-  Page(Movie _myMovie, PImage _backgroundImage) {
+  Page(Movie _myMovie, PImage _backgroundImage, SoundFile[] _sound) {
     myMovie = _myMovie;
     backgroundImage = _backgroundImage;
+    sound = _sound;
     myMovie.jump(0); // Sets the duration to the start, to make sure it does not play from the middle of the movie.
   }
 
@@ -27,6 +29,12 @@ class Page {
   // Function to start the movie.
   void runMovie() {
     myMovie.play();
+  }
+  
+  void playSound(int i){
+     sound[i].jump(0);
+     sound[i].amp(0.5);
+     sound[i].play();
   }
 
   // Function for drawing the backgroundImage.

@@ -113,6 +113,8 @@ class Dilemma {
     } else if (zone == "SIDES") {
       if (object1.clicked) {
         i = interactionZone(x);
+      } else if (object1.mouseOnObject) {
+        page.playSound(0);
       }
       object1.mouseFollow();
     }
@@ -136,11 +138,13 @@ class Dilemma {
       // If the mouse is within the area of the zone and it is the first object that has been clicked, this part of the code will run.
       if (interactionZone1 && interactionZone2 && object1.clicked) { 
         i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        page.playSound(0);
         println("Clicked box with object one"); // Debug print
       
       // If it is instead the other object, object2, this part of the code will run instead.
       } else if (interactionZone1 && interactionZone2 && object2.clicked) {
         i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        page.playSound(0);
         println("clicked box with object two"); // Debug print
       }
       

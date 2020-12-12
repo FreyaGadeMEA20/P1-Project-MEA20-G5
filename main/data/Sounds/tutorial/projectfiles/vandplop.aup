@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="vandplop_data" version="1.3.0" audacityversion="2.3.3" sel0="1.2111639261" sel1="1.2111639261" vpos="0" h="0.0000000000" zoom="617.5877466750" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="421184__inspectorj__water-pouring-a" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="0.501187" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="45629">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808642.au" len="45629" min="-0.727784" max="0.679231" rms="0.076302"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.03467120" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="269">
+				<waveblock start="0">
+					<simpleblockfile filename="e080853b.au" len="269" min="-0.015638" max="0.046264" rms="0.016997"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="421184__inspectorj__water-pouring-a" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="0.501187" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="45629">
+				<waveblock start="0">
+					<simpleblockfile filename="e08080c8.au" len="45629" min="-0.78655" max="0.69752" rms="0.063381"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.03467120" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="269">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808f8b.au" len="269" min="-0.012976" max="0.035935" rms="0.012367"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
