@@ -35,7 +35,7 @@ void draw() {
 // In this function, the program imports all the relevant files into the program, which then gets used when initializing the PageManager class.
 void importFiles() {
   // For the background images, the program loads a lot of images and saves them in an array.
-  PImage[] backgroundImages = new PImage[]{loadImage("scene1-concept1.png"), loadImage("dilemma01_sketch00.png"), loadImage("kitchenmadfri.jpg"), loadImage("dilemma04_shoppingDraft00.png"), loadImage("bedroom.png"), loadImage("factory2.jpg")};
+  PImage[] backgroundImages = new PImage[]{loadImage("scene1-concept1.png"), loadImage("dilemma01_sketch00.png"), loadImage("kitchenmadfri.jpg"), loadImage("dilemma04_shoppingDraft00.png"), loadImage("bedroom.png"), loadImage("factory2.png")};
 
   // For importing the movies, it is split into two different variables. 
   String[] movieNames = {"OAanimation.mov", "midlertidig.mp4", "OAanimation.mov", "OAanimation.mov", "OAanimation.mov", "OAanimation.mov"}; // The first is the list of movieNames

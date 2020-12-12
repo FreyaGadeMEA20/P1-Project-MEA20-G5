@@ -71,7 +71,7 @@ class Dilemma {
 
   // Function for visualizing area that the user can click on.
   void visualizeArea() {
-    fill(#ffff00, 80); // Giving it a transparent yellow color
+    fill(#ffff00, 50); // Giving it a transparent yellow color
     float zoneXX; 
     noStroke();
     rectMode(CENTER); 
