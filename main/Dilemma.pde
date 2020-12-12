@@ -31,6 +31,11 @@ class Dilemma {
     object2 = _object2;
     zone = _zone;
   }
+  
+  // Constructor for the final video. Makes it easier.
+  Dilemma(Page _page) {
+    page = _page;
+  }
 
   // Controller function which controls the flow of the dilemma
   void controller() {
@@ -53,6 +58,16 @@ class Dilemma {
         visualizeObject(object2, 2);
       }
     }
+  }
+  
+  // Function is the same as the first part of controller, but only plays the video.
+  void finalVideo(){
+    if (!firstTime) {
+      page.myMovie.play();
+      firstTime = true;
+    }
+    page.playMovie();
+    
   }
 
   // Calls on the backgroundImage function from the page class
