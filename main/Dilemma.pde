@@ -31,6 +31,11 @@ class Dilemma {
     object2 = _object2;
     zone = _zone;
   }
+  
+  // Constructor for the final video. Makes it easier.
+  Dilemma(Page _page) {
+    page = _page;
+  }
 
   // Controller function which controls the flow of the dilemma
   void controller() {
@@ -54,6 +59,16 @@ class Dilemma {
       }
     }
   }
+  
+  // Function is the same as the first part of controller, but only plays the video.
+  void finalVideo(){
+    if (!firstTime) {
+      page.myMovie.play();
+      firstTime = true;
+    }
+    page.playMovie();
+    
+  }
 
   // Calls on the backgroundImage function from the page class
   void visualizeBackground() {
@@ -71,7 +86,7 @@ class Dilemma {
 
   // Function for visualizing area that the user can click on.
   void visualizeArea() {
-    fill(#ffff00, 80); // Giving it a transparent yellow color
+    fill(#ffff00, 50); // Giving it a transparent yellow color
     float zoneXX; 
     noStroke();
     rectMode(CENTER); 
@@ -113,6 +128,8 @@ class Dilemma {
     } else if (zone == "SIDES") {
       if (object1.clicked) {
         i = interactionZone(x);
+      } else if (object1.mouseOnObject) {
+        page.playSound(0);
       }
       object1.mouseFollow();
     }
@@ -136,11 +153,13 @@ class Dilemma {
       // If the mouse is within the area of the zone and it is the first object that has been clicked, this part of the code will run.
       if (interactionZone1 && interactionZone2 && object1.clicked) { 
         i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        page.playSound(0);
         println("Clicked box with object one"); // Debug print
       
       // If it is instead the other object, object2, this part of the code will run instead.
       } else if (interactionZone1 && interactionZone2 && object2.clicked) {
         i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        page.playSound(0);
         println("clicked box with object two"); // Debug print
       }
       
