@@ -20,6 +20,7 @@ void setup() {
   pages.food = pages.instantiate(4, "MIDDLE", "RIGHT");
   pages.gaming = pages.instantiate(5, "SIDES", "LEFT");
   pages.finalScene = pages.instantiate(6, "FINAL", "");
+  pages.finalScene2 = pages.instantiate(7, "FINAL", "");
 }
 
 void draw() {
@@ -43,7 +44,7 @@ void importFiles() {
   PImage[] backgroundImages = new PImage[]{loadImage("Bottle/scene1-concept1.png"), loadImage("Transport/dilemma01_transport00.png"), loadImage("Factory/factorynew.png"), loadImage("Shopping/dilemma04_shopping00.png"), loadImage("Cooking/kitchenmadfri.jpg"), loadImage("BedRoom/bedroomnew.png")};
 
   // For importing the movies, it is split into two different variables. 
-  String[] movieNames = {"Video Files/intro1.mov", "OAanimation.mov", "Video Files/Konsekvenser/Scene1.mov", "Video Files/Konsekvenser/Scene2.mov", "Video Files/Konsekvenser/Scene3.mov", "Video Files/Konsekvenser/Scene4.mov", "Video Files/Konsekvenser/Scene5.mov"}; // The first is the list of movieNames
+  String[] movieNames = {"Video Files/intro1.mov", "Video Files/Dilemma/introTilDilemma1.mov", "Video Files/Dilemma/introTilDilemma2.mov", "Video Files/Dilemma/introTilDilemma3.mov", "Video Files/Dilemma/introTilDilemma4.mov", "Video Files/Dilemma/introTilDilemma5.mov", "Video Files/Dilemma/outrobest.mov", "Video Files/Dilemma/outroworst.mov"}; // The first is the list of movieNames
   Movie[] listOfMovies = new Movie[movieNames.length]; // Which gets used to determine the length of of the Movie array
 
   // Then the program imports the movie names importing each individual file that gets listed in movieNames.

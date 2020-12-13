@@ -8,6 +8,7 @@ class Pagemanager {
   Dilemma gaming;
   Dilemma work;
   Dilemma finalScene;
+  Dilemma finalScene2;
 
   // The two objects as empty non instantialized variables
   Object object1;
@@ -95,8 +96,7 @@ class Pagemanager {
       if (goodEnding > currentScene/2) {
       finalScene.finalVideo();
       } else if (goodEnding < currentScene/2) {
-      tint(30,255);
-      finalScene.finalVideo();
+      finalScene2.finalVideo();
       }
     }
   }
