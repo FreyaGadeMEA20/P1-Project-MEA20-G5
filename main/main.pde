@@ -8,6 +8,8 @@ void setup() {
 
   imageMode(CENTER); // Sets the image mode to be in center, as it felt the best to use.
 
+  background(0);
+  
   importFiles(); // The program runs the importFiles function which, as the name states, imports the files.
 
   // The program instantiates the different dilemmas
@@ -151,8 +153,6 @@ void importFiles() {
     gamingSounds[i] = new SoundFile(this, gamingSoundNames[i]); // Then that movie file gets added to the movie array
   }
   sounds.add(gamingSounds);
-
-
 
   // --- SOUNDS --- //
 
