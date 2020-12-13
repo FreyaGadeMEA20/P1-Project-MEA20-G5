@@ -31,7 +31,7 @@ class Dilemma {
     object2 = _object2;
     zone = _zone;
   }
-  
+
   // Constructor for the final video. Makes it easier.
   Dilemma(Page _page) {
     page = _page;
@@ -44,7 +44,7 @@ class Dilemma {
       page.myMovie.play();
       firstTime = true;
     }
-    
+
     if (playMovie) { // If the playMovie boolean is true, it will run the playMovie function.
       playMovie = page.playMovie();
     } else { // Else if it is not true, it will visualize the background image.
@@ -59,15 +59,14 @@ class Dilemma {
       }
     }
   }
-  
+
   // Function is the same as the first part of controller, but only plays the video.
-  void finalVideo(){
+  void finalVideo() {
     if (!firstTime) {
       page.myMovie.play();
       firstTime = true;
     }
     page.playMovie();
-    
   }
 
   // Calls on the backgroundImage function from the page class
@@ -90,13 +89,13 @@ class Dilemma {
     float zoneXX; 
     noStroke();
     rectMode(CENTER); 
-    
+
     // If the zone is the middle zone it draws a rectangle equal to the clickable area.
     if (zone == "MIDDLE") {
       zoneXX = width/2;
       rect(zoneXX, zoneY, zoneWidth, zoneHeight);
-      
-    // If the zone is the side zone, it draws both of the clickable areas.
+
+      // If the zone is the side zone, it draws both of the clickable areas.
     } else if (zone == "SIDES") {
       zoneXX = width/6;
       rect(zoneXX, zoneY, zoneWidth, zoneHeight);
@@ -107,23 +106,23 @@ class Dilemma {
   }
 
   // Function for interaction with the object.
-  int interactionWithObject() {
+  int[] interactionWithObject() {
     // As it needs to return an integer back, we initialize i as 0, so it has something to return.
-    int i = 0;
+    int[] i = {0, 0};
     // Sets the x variable to the value of mouseX
     int x = mouseX;
     // Checks if the zone of the dilemma is in the middle or the side
     if (zone == "MIDDLE") {
       // If it is in the middle, it will focus on checking which object that has been picked up.
       if (object1.clicked) {
-        i = interactionZone(x); 
+        i = interactionZone(x);
       } else if (object2.clicked) {
         i = interactionZone(x);
       }
       object1.mouseFollow();
       object2.mouseFollow();
       // Runs the mouseFollow function on both objects, to reset them.
-      
+
       // if the zone is the sides, it will run the same as above, but only with one object.
     } else if (zone == "SIDES") {
       if (object1.clicked) {
@@ -134,14 +133,15 @@ class Dilemma {
       object1.mouseFollow();
     }
 
+    println(i);
     // Then it returns the integer i back, which is either 0 or 1, depending on if the object has been interacted with a zone.
     return i;
   }
 
   // Function for checking if the object has been dropped in a zone or not.
-  int interactionZone(float x) {
+  int[] interactionZone(float x) {
     // Same as the above function with the integer variable.
-    int i = 0;
+    int[] i = {0, 0};
 
     // If the zone is in the middle, it will run this part of the code.
     if (zone == "MIDDLE") {
@@ -152,18 +152,20 @@ class Dilemma {
 
       // If the mouse is within the area of the zone and it is the first object that has been clicked, this part of the code will run.
       if (interactionZone1 && interactionZone2 && object1.clicked) { 
-        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        i[0] = 1; // Sets the int that gets returned to 1, so it can continue till the next page
         page.playSound(0);
+        i[1] = checkIfGood("LEFT");
         println("Clicked box with object one"); // Debug print
-      
-      // If it is instead the other object, object2, this part of the code will run instead.
+
+        // If it is instead the other object, object2, this part of the code will run instead.
       } else if (interactionZone1 && interactionZone2 && object2.clicked) {
-        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        i[0] = 1; // Sets the int that gets returned to 1, so it can continue till the next page
         page.playSound(0);
+        i[1] = checkIfGood("RIGHT");
         println("clicked box with object two"); // Debug print
       }
-      
-    // If the zone is set to the sides, it will run this part of the code.
+
+      // If the zone is set to the sides, it will run this part of the code.
     } else if (zone == "SIDES") {
       zoneX = width/6; // Sets the x of the zone to be on the left side
 
@@ -177,13 +179,25 @@ class Dilemma {
 
       // Checking which zone, left or right, that is interacted with
       if (interactionZone1 && interactionZone2) {
-        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        i[0] = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        i[1] = checkIfGood("LEFT");
         println("Clicked left side"); // Debug print
       } else if (interactionZone3 && interactionZone4) {
-        i = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        i[0] = 1; // Sets the int that gets returned to 1, so it can continue till the next page
+        i[1] = checkIfGood("RIGHT");
         println("Clicked right side"); // Debug print
       }
     }
-    return i; // returns 0 or 1, depending on if a zone has been interacted with or not.  
+    return i; // returns 0 or 1, depending on if a zone has been interacted with or not.
+  }
+
+  int checkIfGood(String choice) {
+    int i = 0;
+
+    if (page.choice == choice) {
+      i = 1;
+    }
+
+    return i;
   }
 }

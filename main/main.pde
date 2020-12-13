@@ -11,13 +11,13 @@ void setup() {
   importFiles(); // The program runs the importFiles function which, as the name states, imports the files.
 
   // The program instantiates the different dilemmas
-  pages.bottle = pages.instantiate(0, "SIDES");
-  pages.transport = pages.instantiate(1, "SIDES");
-  pages.work = pages.instantiate(2, "SIDES");
-  pages.shopping = pages.instantiate(3, "MIDDLE");
-  pages.food = pages.instantiate(4, "MIDDLE");
-  pages.gaming = pages.instantiate(5, "SIDES");
-  pages.finalScene = pages.instantiate(6, "FINAL");
+  pages.bottle = pages.instantiate(0, "SIDES", "LEFT");
+  pages.transport = pages.instantiate(1, "SIDES", "RIGHT");
+  pages.work = pages.instantiate(2, "SIDES", "RIGHT");
+  pages.shopping = pages.instantiate(3, "MIDDLE", "RIGHT");
+  pages.food = pages.instantiate(4, "MIDDLE", "RIGHT");
+  pages.gaming = pages.instantiate(5, "SIDES", "LEFT");
+  pages.finalScene = pages.instantiate(6, "FINAL", "");
 }
 
 void draw() {

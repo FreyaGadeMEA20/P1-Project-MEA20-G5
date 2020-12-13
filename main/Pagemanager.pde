@@ -16,6 +16,7 @@ class Pagemanager {
 
   // Counter to select the screen the program is on.
   int currentScene = 0;
+  int goodEnding = 0;
 
   // Empty arrays which are going to receive the file arrays through the constructor.
   Movie[] listOfMovies;
@@ -53,13 +54,13 @@ class Pagemanager {
   }
 
   // A function to instantiate a dilemma by number, so the movie, background and sprite are the same.
-  Dilemma instantiate(int dilemmaToInstantiate, String zone) {
+  Dilemma instantiate(int dilemmaToInstantiate, String zone, String choice) {
     if (zone != "FINAL") {
       object1 = new Object(sprites.get(dilemmaToInstantiate), width/2, height/2); // The first object gets instantiated
       object2 = new Object(sprites.get(dilemmaToInstantiate), width/2, height/2); // The second object gets instantiated
       // Both objects share the same sprites. That is because the sprites, when there are more than 2 elements, have more than just two images.
 
-      page = new Page(listOfMovies[dilemmaToInstantiate], backgroundImages[dilemmaToInstantiate], soundEffects.get(dilemmaToInstantiate)); // Instantiating the page
+      page = new Page(listOfMovies[dilemmaToInstantiate], backgroundImages[dilemmaToInstantiate], soundEffects.get(dilemmaToInstantiate), choice); // Instantiating the page
     }
     Dilemma instantiatedDilemma = new Dilemma(object1, page, zone); // Instantiating the dilemma with the objects and pages
     // A final function to check if there are one or two objects, which it then uses to instantiate the dilemma again
@@ -91,7 +92,12 @@ class Pagemanager {
     } else if (currentScene == 5) {
       gaming.controller();
     } else {
+      if (goodEnding > currentScene/2) {
       finalScene.finalVideo();
+      } else if (goodEnding < currentScene/2) {
+      tint(30,255);
+      finalScene.finalVideo();
+      }
     }
   }
 
@@ -99,19 +105,28 @@ class Pagemanager {
   // It also counts up when there has been a succesfull interaction, as the function it calls, "interactionWithObject" return either a 0 or a 1.
   void checkIfInteract() {
     if (currentScene == 0) {
-      currentScene += bottle.interactionWithObject();
+      interact(bottle);
     } else if (currentScene == 1) {
-      currentScene += transport.interactionWithObject();
+      interact(transport);
+      /*int[] controlInt = transport.interactionWithObject();
+       currentScene += controlInt[0];
+       goodEnding += controlInt[1];*/
     } else if (currentScene == 2) {
-      currentScene += work.interactionWithObject();
+      interact(work);
     } else if (currentScene == 3) {
-      currentScene += shopping.interactionWithObject();
+      interact(shopping);
     } else if (currentScene == 4) {
-      currentScene += food.interactionWithObject();
+      interact(food);
     } else if (currentScene == 5) {
-      currentScene += gaming.interactionWithObject();
+      interact(gaming);
     } else {
-      println("Debug");
+      println("DEBUG");
     }
+  }
+
+  void interact(Dilemma dilemma) {
+    int[] controlInt = dilemma.interactionWithObject();
+    currentScene += controlInt[0];
+    goodEnding += controlInt[1];
   }
 }
