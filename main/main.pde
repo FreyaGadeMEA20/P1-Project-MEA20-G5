@@ -38,7 +38,7 @@ void draw() {
 // In this function, the program imports all the relevant files into the program, which then gets used when initializing the PageManager class.
 void importFiles() {
   // For the background images, the program loads a lot of images and saves them in an array.
-  PImage[] backgroundImages = new PImage[]{loadImage("Bottle/scene1-concept1.png"), loadImage("Transport/dilemma01_sketch00.png"), loadImage("Factory/factorynew.png"), loadImage("Shopping/dilemma04_shopping00.png"), loadImage("Cooking/kitchenmadfri.jpg"), loadImage("BedRoom/bedroomnew.png")};
+  PImage[] backgroundImages = new PImage[]{loadImage("Bottle/scene1-concept1.png"), loadImage("Transport/dilemma01_transport00.png"), loadImage("Factory/factorynew.png"), loadImage("Shopping/dilemma04_shopping00.png"), loadImage("Cooking/kitchenmadfri.jpg"), loadImage("BedRoom/bedroomnew.png")};
 
   // For importing the movies, it is split into two different variables. 
   String[] movieNames = {"OAanimation.mov", "OAanimation.mov", "Video Files/Konsekvenser/Scene1.mov", "Video Files/Konsekvenser/Scene2.mov", "Video Files/Konsekvenser/Scene3.mov", "Video Files/Konsekvenser/Scene4.mov", "Video Files/Konsekvenser/Scene5.mov"}; // The first is the list of movieNames
@@ -80,7 +80,7 @@ void importFiles() {
   sprites.add(hand);
 
   // ~~~ Same as above ~~~ //
-  PImage[] shopItem = new PImage[]{loadImage("Shopping/shopItem02.png"), loadImage("Shopping/shopItem02_highlight.png"), loadImage("Shopping/shopItem03.png"), loadImage("Shopping/shopItem03_highlight.png")};
+  PImage[] shopItem = new PImage[]{loadImage("Shopping/shopItem04.png"), loadImage("Shopping/shopItem04_highlight.png"), loadImage("Shopping/shopItem03.png"), loadImage("Shopping/shopItem03_highlight.png")};
   for (int i = 0; i < shopItem.length; i++) {
     shopItem[i].resize(shopItem[i].width/5, shopItem[i].height/5);
   }
