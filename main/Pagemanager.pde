@@ -93,7 +93,7 @@ class Pagemanager {
     } else if (currentScene == 5) {
       gaming.controller();
     } else {
-      if (goodEnding > currentScene/2) {
+      if (goodEnding >= currentScene/2) {
         finalScene.finalVideo();
       } else if (goodEnding < currentScene/2) {
         finalScene2.finalVideo();
