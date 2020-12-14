@@ -5,7 +5,7 @@ class Object {
   // Position for its base position, when the object needs to reset
   float x;
   float y;
-  
+
   // Position for the object
   float newX;
   float newY;
@@ -16,7 +16,7 @@ class Object {
   float minimumTransparency = 0;
   float maximumTransparency = 255;
   float pulseModifier = 2;
-  
+
   // Booleans to check if it has reached max
   boolean reachedAlphaMax = false; // Starts at false to make sure it goes up
   boolean reachedAlphaMin = true; // Starts at true so it goes up
@@ -46,7 +46,7 @@ class Object {
     tint(max, max); // Resetting the tint, as only one has to pulse
     image(objectIMG[order], newX, newY); // Drawing the non pulsing image.
   }
-  
+
   // Updating the object - position and pulse.
   void update() {
     if (!clicked) { // Runs this part of the code if the boolean variable clicked is false

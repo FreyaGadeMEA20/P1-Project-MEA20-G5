@@ -94,9 +94,9 @@ class Pagemanager {
       gaming.controller();
     } else {
       if (goodEnding > currentScene/2) {
-      finalScene.finalVideo();
+        finalScene.finalVideo();
       } else if (goodEnding < currentScene/2) {
-      finalScene2.finalVideo();
+        finalScene2.finalVideo();
       }
     }
   }

@@ -9,7 +9,7 @@ void setup() {
   imageMode(CENTER); // Sets the image mode to be in center, as it felt the best to use.
 
   background(0);
-  
+
   importFiles(); // The program runs the importFiles function which, as the name states, imports the files.
 
   // The program instantiates the different dilemmas
@@ -30,12 +30,12 @@ void draw() {
 
   /*
   // --- FOR DEV PURPOSES --- //
-  String fps = nf(frameRate, 0, -1);
-  fill(0, 255, 0);
-  textAlign(LEFT);
-  text(fps, width-50, 50);
-  // --- FOR DEV PURPOSES --- //
-  */
+   String fps = nf(frameRate, 0, -1);
+   fill(0, 255, 0);
+   textAlign(LEFT);
+   text(fps, width-50, 50);
+   // --- FOR DEV PURPOSES --- //
+   */
 }
 
 // In this function, the program imports all the relevant files into the program, which then gets used when initializing the PageManager class.
