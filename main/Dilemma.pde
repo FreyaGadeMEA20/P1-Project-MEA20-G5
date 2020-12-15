@@ -16,6 +16,9 @@ class Dilemma {
 
   // Boolean to check if the movie is playing or not
   boolean playMovie = true;
+  
+  color yellow = #ffff00;
+  int transparency = 50;
 
   // Constructor for one object
   Dilemma(Object _object, Page _page, String _zone) {
@@ -85,7 +88,7 @@ class Dilemma {
 
   // Function for visualizing area that the user can click on.
   void visualizeArea() {
-    fill(#ffff00, 50); // Giving it a transparent yellow color
+    fill(yellow, transparency); // Giving it a transparent yellow color
     float zoneXX; 
     noStroke();
     rectMode(CENTER); 
@@ -133,7 +136,6 @@ class Dilemma {
       object1.mouseFollow();
     }
 
-    println(i);
     // Then it returns the integer i back, which is either 0 or 1, depending on if the object has been interacted with a zone.
     return i;
   }
@@ -194,10 +196,11 @@ class Dilemma {
   int checkIfGood(String choice) {
     int i = 0;
 
+    // Checks if the users choice is the same as the "good" choice of the page.
     if (page.choice == choice) {
       i = 1;
     }
-
+    // Returns either a 0 or a 1, depending on if the user chose the good choice or not.  
     return i;
   }
 }

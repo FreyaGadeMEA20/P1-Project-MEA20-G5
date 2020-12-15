@@ -27,7 +27,6 @@ class Pagemanager {
 
   // :)
 
-
   // Constructor for importing the files from the main 
   Pagemanager(Movie[] _listOfMovies, PImage[] _backgroundImages, ArrayList<PImage[]> _sprites, ArrayList<SoundFile[]> _soundEffects) {
     // Initializes the arrays to be the size of the imported arrays
@@ -108,9 +107,6 @@ class Pagemanager {
       interact(bottle);
     } else if (currentScene == 1) {
       interact(transport);
-      /*int[] controlInt = transport.interactionWithObject();
-       currentScene += controlInt[0];
-       goodEnding += controlInt[1];*/
     } else if (currentScene == 2) {
       interact(work);
     } else if (currentScene == 3) {
@@ -127,6 +123,8 @@ class Pagemanager {
   void interact(Dilemma dilemma) {
     int[] controlInt = dilemma.interactionWithObject();
     currentScene += controlInt[0];
-    goodEnding += controlInt[1];
+    if (dilemma != bottle) { //Makes it so it does not count the bottle tutorial
+      goodEnding += controlInt[1];
+    }
   }
 }
