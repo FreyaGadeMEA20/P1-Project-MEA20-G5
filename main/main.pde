@@ -1,3 +1,10 @@
+/*
+
+We are not able to export the application, as under the proces of us developing the application,
+the video library had been updated to 2.0, which causes the issue of not being able to export the application.
+
+*/
+
 import processing.video.*;
 import processing.sound.*;
 
