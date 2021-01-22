@@ -47,7 +47,7 @@ void draw() {
 
 // In this function, the program imports all the relevant files into the program, which then gets used when initializing the PageManager class.
 void importFiles() {
-  
+
   // --- SPRITES --- //
 
   // The program initializes an ArrayList for the sprites. The program handles it in ArrayList, so it can loop through a PImage array, instead of having every PImage.
@@ -95,7 +95,7 @@ void importFiles() {
   // --- SPRITES --- //
 
   // --- MOVIES --- //
-  
+
   // For the background images, the program loads a lot of images and saves them in an array.
   PImage[] backgroundImages = new PImage[]{loadImage("Bottle/scene1-concept1.png"), loadImage("Transport/dilemma01_transport00.png"), loadImage("Factory/factorynew.png"), loadImage("Shopping/dilemma04_shopping00.png"), loadImage("Cooking/kitchenmadfri.jpg"), loadImage("BedRoom/bedroomnew.png")};
 
@@ -110,7 +110,7 @@ void importFiles() {
     listOfMovies[i].pause(); // The program then pauses that video file, as the program does not want them all to play at the same time.
   }
   loadText = loadText + ".";
-  
+
   // --- MOVIES --- //
 
   // --- SOUNDS --- //
@@ -190,7 +190,9 @@ void importFiles() {
 
 // As an event, mousePressed, the program calls the function "checkIfInteract()" for checking if the user clicks on an object
 void mousePressed() {
-  pages.checkIfInteract();
+  if (thread) {
+    pages.checkIfInteract();
+  }
 }
 
 // Called every time a new frame is available to read
