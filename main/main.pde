@@ -15,9 +15,7 @@ String loadText = "Loading";
 
 void setup() {
   fullScreen(); // Sets the program to run in fullscreen
-
   imageMode(CENTER); // Sets the image mode to be in center, as it felt the best to use.
-
   background(0);
 
   thread("importFiles"); // The program runs the importFiles function which, as the name states, imports the files.
