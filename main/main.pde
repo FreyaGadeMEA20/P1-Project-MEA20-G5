@@ -24,7 +24,6 @@ void setup() {
 void draw() {
   background(0); // Just to make sure there is not an after image from a previous frame, the program draws a background color.
 
-
   if (thread) {
     pages.pageController(); // Then following that, the program runs the pageController function from PageManager class, created at line 3 and initialized in the importFiles() function.
   } else {
