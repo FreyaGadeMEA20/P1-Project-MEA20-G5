@@ -86,14 +86,14 @@ class Pagemanager {
     } else if (currentScene == 2) {
       //work.controller();
       shopping.controller();
-    }/* else if (currentScene == 3) {
+    } else if (currentScene == 3) {
       //shopping.controller();
       work.controller();
     } else if (currentScene == 4) {
       //food.controller();
     } else if (currentScene == 5) {
       gaming.controller();
-    }*/ else {
+    } else {
       if (goodEnding >= currentScene/2) {
         finalScene.finalVideo();
       } else if (goodEnding < currentScene/2) {
@@ -112,14 +112,14 @@ class Pagemanager {
     } else if (currentScene == 2) {
       //interact(work);
       interact(shopping);
-    }/* else if (currentScene == 3) {
+    } else if (currentScene == 3) {
       //interact(shopping);
       interact(work);
     } else if (currentScene == 4) {
       interact(food);
     } else if (currentScene == 5) {
       interact(gaming);
-    }*/ else {
+    } else {
       println("DEBUG");
     }
   }
